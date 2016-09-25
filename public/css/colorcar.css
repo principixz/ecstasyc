@@ -1,0 +1,60 @@
+#contenedor{
+		width: 600px;
+		height: 500px;
+		padding-top:200px;
+		background-image: "carro.jpg";
+		background-color: #cccccc;
+	}
+#partealta{
+	width: 180px;
+	height: 90px;
+	background-color: red;
+	margin-left:200px; 
+	padding-top: 20px;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 10%;
+}
+	.ventana{
+		background-color: blue;
+		height: 45px;
+		float: left;
+	}
+	#ventanaleft{
+		width: 80px;
+		margin-left: 80px;
+		border-top-right-radius: 10%;
+		border-top-left-radius: 30%;
+	}
+#partebaja{
+ 	width: 500px;
+ 	height: 150px;
+ 	background-color: red;
+ 	margin-left: 50px;
+ 	float: left;
+ 	margin-right: 50px;
+ 	margin-top:-25px;
+ 	border-top-left-radius: 180%;
+ 	border-top-right-radius: 50%;
+ 	border-bottom-left-radius: 10%;
+ 	border-bottom-right-radius: 10%;
+}
+	#faro{
+		width: 150px;
+		height: 60px;
+		border: 2px solid yellow;
+		margin-top: 50px;
+		margin-left: 320px;
+		border-top-right-radius: 10%;
+		border-top-left-radius: 50%;
+	}
+.llanta{
+	color:gray;
+	float: left;
+	margin-top: -42px;
+}
+#llanta1{
+	margin-left: 150px;
+}
+#llanta2{
+	margin-left: 200px;
+}

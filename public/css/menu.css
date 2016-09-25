@@ -1,0 +1,72 @@
+
+
+		#form{
+			width: 90%;
+			margin: 0 auto;
+
+		}
+
+
+		.contenido{
+
+			width: 94% !important;
+			margin: 0 0.7% 0 3%;
+		}
+
+
+
+
+
+		.botones{
+			width: 100%;
+
+			margin: 30px auto;
+		}
+
+
+
+		/*input{
+			width: 250px;
+			height: 30px;
+			border-radius: 5px !important;
+		}*/
+
+		label{
+			font-size: 15px;
+		}
+
+		#btn, #btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7, #btn8, #btn9, #btn10,
+		#btn_salud,#btn_domicilio,#btn_situacion,#btn_otros,#btn_control,#btn_family,#btn_vacuna,#btn_guardar,.cancelar{
+			width: 100px;
+			height: 30px;
+			padding: 5px;
+            margin-top: 10px;
+			border-radius: 5px;
+
+		}
+
+		.cancelar2{
+			width: 150px;
+			height: 35px;
+			padding: 5px;
+            margin-top: 10px;
+			border-radius: 5px;
+
+		}
+
+		#registrar{
+
+			margin: 70px auto 0 auto;
+			display: none;
+		}
+
+		#nuevo{
+			position: absolute;
+			left: 0;
+			top: 50px;
+
+		}
+
+		#form h3{
+			margin-bottom: 30px !important;
+		}

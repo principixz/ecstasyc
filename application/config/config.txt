@@ -1,0 +1,7 @@
+[database]
+host =localhost
+driver =mysqli
+usuario =root
+password =
+basedatos =ecstasy
+gestor =MYSQL
