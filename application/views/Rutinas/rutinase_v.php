@@ -18,7 +18,7 @@
 								</div>
 							</div>
 							<div class="portlet-body">
-								<form id="formulario" action="<?php echo base_url()?>Rutinas_c/registrar" method="post" class="horizontal-form">
+								<form id="formulario" action="<?php echo base_url()?>Rutinas_c/editar" method="post" class="horizontal-form">
 											<div class="form-body">
 												<div class="row">
 												<?php foreach ($rutina as $value) { ?>
@@ -26,13 +26,14 @@
 														<div class="form-group">
 															<label class="control-label">Nombre de Rutina</label>
 															<input type="text" id="nrutina" name="nrutina" class="form-control" value="<?php echo $value->rutina ?>" required>
+															<input type="hidden" id="idrutina" name="idrutina" class="form-control" value="<?php echo $value->id_rutina ?>" required>
 														</div>
 													</div>
 													<!--/span-->
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label">Recomendación</label>
-															<input type="text" id="recomendacion" name="recomendacion" class="form-control" value="<?php echo $value->rutina ?>" required>
+															<input type="text" id="recomendacion" name="recomendacion" class="form-control" value="<?php echo $value->recomendacion ?>" required>
 														</div>
 													</div>
 												<?php	} ?>

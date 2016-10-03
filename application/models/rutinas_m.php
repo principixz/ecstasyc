@@ -19,13 +19,13 @@ class Rutinas_m extends CI_Model {
 
     public function rutinas(){
         $r = $this->db->query("SELECT rutina.id_rutina, rutina.descripcion as rutina, rutina.recomendacion,rutina.estado
-        FROM rutina");        
+            FROM rutina");        
         return $r->result();
     }
 
     public function rutinasm($id){
         $r = $this->db->query("SELECT rutina.id_rutina, rutina.descripcion as rutina, rutina.recomendacion,rutina.estado
-        FROM rutina WHERE rutina.id_rutina='".$id."'");        
+            FROM rutina WHERE rutina.id_rutina='".$id."'");        
         return $r->result();
     }
 
@@ -89,7 +89,7 @@ class Rutinas_m extends CI_Model {
         }
         
         for($i=0;$i<count($_POST['ejercicio']);$i++){
-           $rutina_ejer = array(
+         $rutina_ejer = array(
             "id_rutina" => $id_rutina,  
             "id_ejercicios" => $this->input->post("ejercicio")[$i],
             "serie" => $this->input->post("serie")[$i],
@@ -97,14 +97,29 @@ class Rutinas_m extends CI_Model {
             "dia" => $this->input->post("dias")[$i],
             "estado" => "1"
             );
-           $r = $this->db->insert("rutina_ejercicios",$rutina_ejer);
-       }
-   }
+         $r = $this->db->insert("rutina_ejercicios",$rutina_ejer);
+     }
+ }
 
+ public function editar(){
+    $id_rutina = $this->input->post("idrutina");
+    $nrutina = $this->input->post("nrutina");
+    $recomendacion = $this->input->post("recomendacion");
+    $acrutina = $this->db->query("UPDATE rutina 
+        SET descripcion ='".$nrutina."', recomendacion ='".$recomendacion."'  WHERE id_rutina ='".$id_rutina."'");
 
-
+    $elirutina = $this->db->query("DELETE FROM rutina_ejercicios Where rutina_ejercicios.id_rutina ='".$id_rutina."'");
+    for($i=0;$i<count($_POST['ejercicio']);$i++){
+     $rutina_ejer = array(
+        "id_rutina" => $id_rutina,  
+        "id_ejercicios" => $this->input->post("ejercicio")[$i],
+        "serie" => $this->input->post("serie")[$i],
+        "repeticiones" => $this->input->post("repeticiones")[$i],
+        "dia" => $this->input->post("dias")[$i],
+        "estado" => "1"
+        );
+     $r = $this->db->insert("rutina_ejercicios",$rutina_ejer);
+ }
 }
-
-
-
+}
 ?>

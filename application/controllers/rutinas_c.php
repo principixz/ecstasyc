@@ -20,6 +20,7 @@ class Rutinas_c extends CI_Controller {
         $categoriae = $this->Rutinas_m->categoriae();
         echo $this->load->view('Rutinas/Rutinasa_v.php',compact("categoriae","Ejercicios"));
     }
+
     public function modificar(){
         $categoriae = $this->Rutinas_m->categoriae();
         $rutina = $this->Rutinas_m->rutinasm($this->input->post("id"));
@@ -46,6 +47,8 @@ class Rutinas_c extends CI_Controller {
        $this->Rutinas_m->registrar();
     }
 
-    
+    public function editar(){
+       $this->Rutinas_m->editar();
+    } 
 
 }
