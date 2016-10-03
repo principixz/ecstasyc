@@ -18,13 +18,28 @@ class Rutinas_m extends CI_Model {
     }
 
     public function rutinas(){
-        $r = $this->db->query("SELECT rutina_ejercicios.repeticiones,rutina_ejercicios.dia,rutina_ejercicios.estado,rutina_ejercicios.serie,ejercicio.descripcion as ejercicio,categoria_ejercicio.descripcion as categoria,rutina_ejercicios.id_rutina,rutina.descripcion as rutina,rutina.recomendacion
-            FROM
-            ejercicio
-            INNER JOIN rutina_ejercicios ON ejercicio.id_ejercicio = rutina_ejercicios.id_ejercicios
-            INNER JOIN categoria_ejercicio ON ejercicio.id_ejercicio = categoria_ejercicio.id_categoria_ejercicio
-            INNER JOIN rutina ON rutina.id_rutina = rutina_ejercicios.id_rutina");        
-            return $r->result();
+        $r = $this->db->query("SELECT rutina.id_rutina, rutina.descripcion as rutina, rutina.recomendacion,rutina.estado
+        FROM rutina");        
+        return $r->result();
+    }
+
+    public function rutinasm($id){
+        $r = $this->db->query("SELECT rutina.id_rutina, rutina.descripcion as rutina, rutina.recomendacion,rutina.estado
+        FROM rutina WHERE rutina.id_rutina='".$id."'");        
+        return $r->result();
+    }
+
+    public function rutinase($id){
+        $r = $this->db->query("SELECT
+            rutina_ejercicios.repeticiones,rutina_ejercicios.dia,rutina_ejercicios.estado,rutina_ejercicios.serie,rutina_ejercicios.id_rutina,rutina.descripcion as rutina,
+            rutina.recomendacion,ejercicio.descripcion as ejercicio ,categoria_ejercicio.descripcion as categoria,
+            categoria_ejercicio.id_categoria_ejercicio,ejercicio.id_ejercicio
+            FROM rutina_ejercicios
+            INNER JOIN rutina ON rutina.id_rutina = rutina_ejercicios.id_rutina
+            INNER JOIN ejercicio ON ejercicio.id_ejercicio = rutina_ejercicios.id_ejercicios
+            INNER JOIN categoria_ejercicio ON categoria_ejercicio.id_categoria_ejercicio = ejercicio.id_categoriaejercicio
+            Where rutina.id_rutina ='".$id."'");
+        return $r->result();
     }
 
     public function categoriae()
@@ -70,11 +85,11 @@ class Rutinas_m extends CI_Model {
         $query = $this->db->get('rutina');
         $r= $query->result() ;
         foreach ($r as $value) {
-            $id_rutina = $value->id_rutina + 1;
+            $id_rutina = $value->id_rutina;
         }
         
         for($i=0;$i<count($_POST['ejercicio']);$i++){
-         $rutina_ejer = array(
+           $rutina_ejer = array(
             "id_rutina" => $id_rutina,  
             "id_ejercicios" => $this->input->post("ejercicio")[$i],
             "serie" => $this->input->post("serie")[$i],
@@ -82,9 +97,9 @@ class Rutinas_m extends CI_Model {
             "dia" => $this->input->post("dias")[$i],
             "estado" => "1"
             );
-         $r = $this->db->insert("rutina_ejercicios",$rutina_ejer);
-     }
- }
+           $r = $this->db->insert("rutina_ejercicios",$rutina_ejer);
+       }
+   }
 
 
 

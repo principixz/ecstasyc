@@ -14,26 +14,28 @@
 							<div class="portlet-title">
 								<div class="caption">
 									<i class="fa fa-cogs font-green-sharp"></i>
-									<span class="caption-subject font-green-sharp bold uppercase">Registro de Nueva Rutina</span>
+									<span class="caption-subject font-green-sharp bold uppercase">Edición de Rutinas</span>
 								</div>
 							</div>
 							<div class="portlet-body">
 								<form id="formulario" action="<?php echo base_url()?>Rutinas_c/registrar" method="post" class="horizontal-form">
 											<div class="form-body">
 												<div class="row">
+												<?php foreach ($rutina as $value) { ?>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label">Nombre de Rutina</label>
-															<input type="text" id="nrutina" name="nrutina" class="form-control" placeholder="Descripción" required>
+															<input type="text" id="nrutina" name="nrutina" class="form-control" value="<?php echo $value->rutina ?>" required>
 														</div>
 													</div>
 													<!--/span-->
 													<div class="col-md-6">
 														<div class="form-group">
 															<label class="control-label">Recomendación</label>
-															<input type="text" id="recomendacion" name="recomendacion" class="form-control" placeholder="" required>
+															<input type="text" id="recomendacion" name="recomendacion" class="form-control" value="<?php echo $value->rutina ?>" required>
 														</div>
 													</div>
+												<?php	} ?>
 													<!--/span-->
 												</div>
 												<!--/row-->
@@ -100,7 +102,31 @@
 															<th>Repeticiones</th>
 															<th>Día</th>
 															<th>Edit.</th>
+															<?php foreach ($ejercicios as  $value) { ?>
+															<tr class="row_tmp">
+																<td>
+																	<input type="hidden" name="categejercicio[]" value="<?php echo $value->id_categoria_ejercicio ?>"/><?php echo $value->categoria ?>
+																</td>
+																<td>
+																<input type="hidden" name="ejercicio[]"   value="<?php echo $value->id_ejercicio ?>"/><?php echo $value->ejercicio ?>
+																</td>
+																<td>
+																<input type="hidden" name="serie[]" value="<?php echo $value->serie ?>"/><?php echo $value->serie ?>
+																</td>
+																<td>
+																<input type="hidden" name="repeticiones[]" value="<?php echo $value->repeticiones ?>"/><?php echo $value->repeticiones ?>
+																</td>
+																<td>
+																<input type="hidden" name="dias[]" class="importe" value="<?php echo $value->dia ?>"/><?php echo $value->dia ?>
+																</td>
+																<td>
+																<a class="btn btn-danger delete" onclick=" $(this).closest('tr').remove();"><i class="icon-trash icon-white"></i></a>
+																</td>
+																
+															</tr>
+															<?php } ?>
 															</table>
+
 														</div>
 													</div>
 												</div>
@@ -145,7 +171,7 @@ $(document).ready(function(){
 			$('#sample_3').DataTable().destroy('#sample_3');
 			$('#nuevo').empty();
             $('#nuevo').append(data);
-            	$('#sample_1').DataTable( {
+            	$('#sample_3').DataTable( {
 							language: {
 							search: "Buscar ... ",
 							sLengthMenu:"",

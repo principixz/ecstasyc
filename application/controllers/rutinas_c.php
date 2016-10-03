@@ -11,10 +11,20 @@ class Rutinas_c extends CI_Controller {
         $rutinas = $this->Rutinas_m->rutinas();
         echo $this->load->view('Rutinas/Rutinas_v.php',compact("rutinas"));
     }
+    public function rutinas(){
+        $rutinas = $this->Rutinas_m->rutinase($this->input->post("id"));
+        echo json_encode($rutinas);        
+    }
 
     public function nuevo(){
         $categoriae = $this->Rutinas_m->categoriae();
         echo $this->load->view('Rutinas/Rutinasa_v.php',compact("categoriae","Ejercicios"));
+    }
+    public function modificar(){
+        $categoriae = $this->Rutinas_m->categoriae();
+        $rutina = $this->Rutinas_m->rutinasm($this->input->post("id"));
+        $ejercicios = $this->Rutinas_m->rutinase($this->input->post("id"));
+        echo $this->load->view('Rutinas/Rutinase_v.php',compact("rutina","ejercicios","categoriae"));
     }
     public function cambiarestado(){
         $this->Rutinas_m->cambiarestado($this->input->post("estado"),$this->input->post("id")); 
