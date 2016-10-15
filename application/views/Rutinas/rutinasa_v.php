@@ -145,7 +145,7 @@ $(document).ready(function(){
 			$('#sample_3').DataTable().destroy('#sample_3');
 			$('#nuevo').empty();
             $('#nuevo').append(data);
-            	$('#sample_1').DataTable( {
+            	$('#sample_3').DataTable( {
 							language: {
 							search: "Buscar ... ",
 							sLengthMenu:"",

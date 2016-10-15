@@ -12,8 +12,10 @@
 <script src="<?php echo base_url();?>public/assets/global/scripts/metronic.js" type="text/javascript"></script>
 <script src="<?php echo base_url();?>public/assets/admin/layout3/scripts/layout.js" type="text/javascript"></script>
 <script src="<?php echo base_url();?>public/assets/admin/layout3/scripts/demo.js" type="text/javascript"></script>
-
+<script src="<?php echo base_url();?>public/assets/bootbox/bootbox.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/assets/global/plugins/select2/select2.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
 <script src="<?php echo base_url();?>public/assets/admin/pages/scripts/table-managed.js"></script>
+<script src="<?php echo base_url();?>public/js/js_highchart/highcharts.js"></script>
+<script src="<?php echo base_url();?>public/js/js_highchart/exporting.js"></script>
